@@ -31,4 +31,16 @@ def acquireToken():
         return ("Error:", response.text)
 
 
+def acquireTopCharts():
+    url = "https://billboard-api2.p.rapidapi.com/hot-100"
+    querystring = {"date": "2023-05-24", "range": "1-10"}
+    headers = {
+        "X-RapidAPI-Key": "74811ea56fmsh9a3c0d8f157cac1p19f2ffjsn4327a84221e1",
+        "X-RapidAPI-Host": "billboard-api2.p.rapidapi.com",
+    }
+    response = requests.get(url, headers=headers, params=querystring)
+    print(response.json())
+
+
 print(acquireToken())
+print(acquireTopCharts())
